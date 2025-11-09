@@ -4,43 +4,38 @@ void main() {
   runApp(MyApp());
 }
 
+// stateless
+// material app
+//scaffold
+
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      // theme of the app
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class _CounterScreenState extends State<CounterScreen> {
-  int _count = 0;
-
-  void _increment() {
-    setState((){
-      _count++;
-    });
-  }
-}
-
-
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Flutter Home Page')),
-      body: Center(
-        child: Text('Count: $_count', style: TextStyle(fontSize: 24)),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.teal,
+          brightness: Brightness.dark,
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _increment,
-        tooltip: 'increment',
-        child: const Icons(Icons.add),
-      ),
+      home: Scaffold(
+        appBar: AppBar(title: Text("Fantastic Pancake"), centerTitle: true),
+
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+            NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
+          ],
+          onDestinationSelected: (int value) {
+            print(value);
+          },
+          selectedIndex: 0,
+        ),
+      ), // skeleton of the app
     );
   }
 }
