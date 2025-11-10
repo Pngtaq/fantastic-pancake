@@ -1,15 +1,19 @@
+import 'package:fantastic_pancake/views/widget_tree.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-// stateless
-// material app
-//scaffold
-
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  // here
 
   @override
   Widget build(BuildContext context) {
@@ -22,20 +26,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
         ),
       ),
-      home: Scaffold(
-        appBar: AppBar(title: Text("Fantastic Pancake"), centerTitle: true),
-
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-            NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
-          ],
-          onDestinationSelected: (int value) {
-            print(value);
-          },
-          selectedIndex: 0,
-        ),
-      ), // skeleton of the app
+      home: WidgetTree(),
     );
   }
 }
