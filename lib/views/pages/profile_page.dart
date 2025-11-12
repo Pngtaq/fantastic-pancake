@@ -16,7 +16,14 @@ class _ProfilePageState extends State<ProfilePage> {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
-          TextField(decoration: InputDecoration(border: OutlineInputBorder())),
+          TextField(
+            decoration: InputDecoration(border: OutlineInputBorder()),
+            controller: controller,
+            onEditingComplete: () {
+              setState(() {});
+            },
+          ),
+          Text(controller.text),
         ],
       ),
     );
