@@ -1,3 +1,4 @@
+import 'package:fantastic_pancake/data/notifiers.dart';
 import 'package:fantastic_pancake/views/widget_tree.dart';
 import 'package:flutter/material.dart';
 
@@ -17,16 +18,21 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // theme of the app
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
-          brightness: Brightness.dark,
-        ),
-      ),
-      home: WidgetTree(),
+    return ValueListenableBuilder(
+      valueListenable: isDarkMode,
+      builder: (context, value, child) {
+        return MaterialApp(
+          // theme of the app
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.teal,
+              brightness: value ? Brightness.dark : Brightness.light,
+            ),
+          ),
+          home: WidgetTree(),
+        );
+      },
     );
   }
 }

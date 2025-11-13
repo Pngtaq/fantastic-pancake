@@ -12,9 +12,26 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Fantastic Pancake")),
+      appBar: AppBar(
+        title: Text("Fantastic Pancake"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              isDarkMode.value = !isDarkMode.value;
+            },
+            icon: ValueListenableBuilder(
+              valueListenable: isDarkMode,
+              builder: (context, value, child) {
+                return Icon(value ? Icons.dark_mode : Icons.light_mode);
+              },
+            ),
+          ),
+        ],
+      ),
+
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,
+
         builder: (context, selectedPage, child) {
           return pages.elementAt(selectedPage);
         },
