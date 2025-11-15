@@ -1,6 +1,8 @@
 import 'package:fantastic_pancake/data/notifiers.dart';
 import 'package:fantastic_pancake/views/pages/home_page.dart';
 import 'package:fantastic_pancake/views/pages/profile_page.dart';
+import 'package:fantastic_pancake/views/pages/settings_page.dart';
+
 import 'package:fantastic_pancake/widgets/navbar_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +28,11 @@ class WidgetTree extends StatelessWidget {
               },
             ),
           ),
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return SettingsPage();
+            },));
+          }, icon: Icon(Icons.settings),)
         ],
       ),
 
