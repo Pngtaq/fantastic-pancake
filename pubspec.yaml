@@ -14,9 +14,6 @@ dependencies:
 
   #UTILITY PACKAGE
 
-  cupertino_icons: ^1.0.8
-  get: ^4.7.3
-  iconsax: ^0.0.8
 
 
 dev_dependencies:
@@ -29,7 +26,5 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/
     - assets/images/
-    - assets/fonts/
-    - assets/icons/
-    - assets/logo/
