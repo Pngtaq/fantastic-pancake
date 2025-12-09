@@ -27,7 +27,7 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(backgroundColor: Colors.black, body: activeScreen),
+      home: Scaffold(backgroundColor: Colors.blueGrey, body: activeScreen),
     );
   }
 }
