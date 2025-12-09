@@ -18,6 +18,12 @@ class StartScreen extends StatelessWidget {
             onPressed: switchScreen,
             icon: Icon(Icons.arrow_right_alt, color: Colors.white),
             label: Text("StartQuiz", style: TextStyle(color: Colors.white)),
+            style: OutlinedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              side: BorderSide(color: Colors.white),
+            ),
           ),
           SizedBox(height: 10),
         ],
